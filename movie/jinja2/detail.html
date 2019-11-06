@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ movie.title }} {% endblock %}
+
+{% block content %}
+
+<div id='detail' class="jumbotron d-flex align-items-center w-100 h-100 bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{{ movie.poster }}" class="mx-auto d-block img-thumbnail rounded" width="350px" height="450px"></img>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bolder display-4"> {{ movie.title }} </h1>
+                <p class="mt-4 lead"> {{ movie.release }} </p>
+                <p class="mt-4 lead"> {{ movie.description }} </p>
+                <div class="mt-4 btn-group btn-group-lg" role="toolbar">
+                    <button id="watch_trailer" type="button" class="btn btn-danger"><i class="fa fa-film text-white"></i></button>
+                    <button type="button" class="btn btn-success"><i class="fa fa-calendar-plus text-white"></i></button>
+                    <button type="button" class="btn btn-warning"><i class="fa fa-share text-white"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<iframe id="trailer" class="main w-100 h-100 embed-responsive-item" src="{{movie.trailer}}" allowfullscreen></iframe>
+
+
+<script>
+    $("#watch_trailer").on('click', function(e) {
+        $('html, body').animate({scrollTop: $('#trailer').offset().top}, 800);
+    });
+    
+    $('#detail').on('mousewheel DOMMouseScroll', function(e){
+        if(e.originalEvent.deltaY > 0){
+            $('html, body').animate({scrollTop: $('#trailer').offset().top}, 800);
+        }
+    });
+</script>
+
+{% endblock %}

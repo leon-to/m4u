@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content%}
+<div class="jumbotron d-flex align-items-center w-100 h-100 m-0 bg-dark">
+    <div class="container text-center w-50">
+        <h1 class="display-1">M4U</h1>
+        <form action="/search" class="search form-input" role="search">
+            <input name="q" type="search" class="form-control input-lg rounded-pill border-0 text-center" placeholder="What are you looking for?"></input>
+            <button type="submit" class="btn btn-secondary mt-3">Search</button>
+        </form>
+    </div>
+</div>
+<style>
+    input:focus{
+        outline:none;
+    }
+</style>
+{% endblock %}

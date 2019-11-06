@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+<div class="jumbotron d-flex align-items-center w-100 h-100 m-0 bg-dark">
+    <div class="container">
+        <div class="row">
+            <form action="/search" class="w-100 form-inline search form-input" role="search">
+                <label class="col-2 display-4">M4U</label>
+                <input name="q" type="search" class="col-8 form-control input-lg rounded-pill border-0 text-center" placeholder="What are you looking for?"></input>
+                <div class="col-2 text-center">
+                    <button type="submit" class="btn btn-secondary">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            {% if not movies%}
+            <p class="col text-center">Sorry, we can't find anything</p>
+            {% else %}
+            <div class="table-responsive">
+                <table class="table table-borderless table-sm text-center text-white">
+                    <tbody>
+                        <tr>
+                            {% for movie in movies %}
+                            <td class="h-100">
+                                <img class="img-responsive h-100" src={{movie.poster}}></img>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for movie in movies %}
+                            <th>{{movie.title}}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for movie in movies %}
+                            <td>{{movie.release}}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

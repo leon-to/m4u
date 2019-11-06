@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="jumbotron d-flex align-items-center w-100 h-100 bg-dark">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid rounded w-100" src="{{static('legal/sakamoto_chair.gif')}}"></img>
+        </div>
+        <div class="col">
+            <blockquote>
+                <h2><i class="fas fa-quote-left"></i>
+                    Hey, there!<br> Don't sneak up on me like that!
+                    <i class="fas fa-quote-right"></i></h2>
+                <footer class="blockquote-footer">Lone Leon</footer>
+            </blockquote>
+            <p>
+            Watching movies is my passion. As being good at time management,
+            I want you to be the same, especially in movie domain. 
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
