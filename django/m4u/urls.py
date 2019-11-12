@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('movie_calendar.urls')),
     path('movie/', include('movie.urls')),
     path('search/', include('search.urls')),
-    path('legal/', include('legal.urls')),
+    path('home/', include('home.urls')),
 ]
